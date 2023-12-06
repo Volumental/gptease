@@ -1,0 +1,17 @@
+# IDE/Editor folders
+.idea/
+.vscode/
+
+# macOS generated files
+.DS_Store
+
+# Linux generated files
+*~
+
+# Build files
+*.exe
+*.test
+*.prof
+
+# Secrets etc.
+.env
