@@ -1,7 +1,7 @@
 GPTease - GPT made easy
 =======================
 
-This library is designed to make it as easy as possible to get started using ChatGPT and related OpenAI products in Go. For a more comprehensive library, you might want to consider something like github.com/sashabaranov/go-openai instead (or use them side by side). This one is for the lazy coder who just wants to get going without learning all the details.
+This library is designed to make it as easy as possible to get started using ChatGPT and related OpenAI products in Go. For a more comprehensive library, you might want to consider something like [go-openai](https://github.com/sashabaranov/go-openai) instead (or use them side by side). This one is for the lazy coder who just wants to get going without learning all the details.
 
 ### Goals
 
@@ -21,7 +21,7 @@ Put your OpenAI API key in the environment variable named OPENAI_API_KEY like th
 export OPENAI_API_KEY=your_api_key_here
 ```
 
-Or you may use a library such as github.com/joho/godotenv to keep it in a file when you develop.
+Or you may use a library such as [godotenv](https://github.com/joho/godotenv) to keep it in a file when you develop.
 
 Then compile and run the following program:
 
