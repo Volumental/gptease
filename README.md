@@ -80,7 +80,7 @@ type rollDiceArgs struct {
 }
 ```
 
-This information will be sent to the AI to help it understand how to use the function.
+It will use the `json` tag for field names, and to know whether a field is required. You may also add a `desc` tag to describe the meaning of the field, and an `enum` tag to indicate allowed values. This information will be sent to the AI as a JSON Schema to help it understand how to use the function.
 
 Final words
 -----------
