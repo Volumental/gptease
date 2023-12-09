@@ -26,13 +26,15 @@ func (t *Tool) openaiTool() openai.Tool {
 	}
 }
 
+type fieldMap map[string]fieldSpec
+
 type fieldSpec struct {
-	Type        string               `json:"type"`
-	Properties  map[string]fieldSpec `json:"properties,omitempty"`
-	Items       *fieldSpec           `json:"items,omitempty"`
-	Description string               `json:"description,omitempty"`
-	Required    []string             `json:"required,omitempty"`
-	Enum        []string             `json:"enum,omitempty"`
+	Type        string     `json:"type"`
+	Properties  *fieldMap  `json:"properties,omitempty"`
+	Items       *fieldSpec `json:"items,omitempty"`
+	Description string     `json:"description,omitempty"`
+	Required    []string   `json:"required,omitempty"`
+	Enum        []string   `json:"enum,omitempty"`
 }
 
 type spec struct {
@@ -54,7 +56,7 @@ func readSpec(t reflect.Type) (s fieldSpec) {
 	switch t.Kind() {
 	case reflect.Struct:
 		s.Type = "object"
-		s.Properties = make(map[string]fieldSpec)
+		s.Properties = &fieldMap{}
 		for i := 0; i < t.NumField(); i++ {
 			var f = t.Field(i)
 			var name = f.Name
@@ -67,7 +69,7 @@ func readSpec(t reflect.Type) (s fieldSpec) {
 			}
 			var fs = readSpec(f.Type)
 			fs.parseTag(f.Tag)
-			s.Properties[name] = fs
+			(*s.Properties)[name] = fs
 		}
 	case reflect.Slice:
 		s.Type = "array"

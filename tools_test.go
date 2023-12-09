@@ -87,7 +87,8 @@ func TestGenerateTool(t *testing.T) {
 			wantName: "trivial",
 			wantDesc: "Trivial tool.",
 			wantParams: `{
-				"type": "object"
+				"type": "object",
+				"properties": {}
 			}`,
 			input:      "{}",
 			wantOutput: "{}",
@@ -99,7 +100,8 @@ func TestGenerateTool(t *testing.T) {
 			wantName: "trivialError",
 			wantDesc: "Trivial tool with error.",
 			wantParams: `{
-				"type": "object"
+				"type": "object",
+				"properties": {}
 			}`,
 			input:     "{}",
 			wantError: true,
