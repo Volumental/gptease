@@ -35,7 +35,7 @@ func Embed(text string) (v Embedding, tokenCount int, err error) {
 	resp, err := client.CreateEmbeddings(
 		context.Background(),
 		openai.EmbeddingRequest{
-			Model: openai.AdaEmbeddingV2,
+			Model: openai.LargeEmbedding3,
 			Input: []string{text},
 		},
 	)
